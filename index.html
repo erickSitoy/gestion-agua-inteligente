@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Gestión Inteligente del Agua</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Inteligente de Gestión del Agua</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- LOGIN -->
   <div id="login-container">
-    <h1>💧 Iniciar Sesión</h1>
-    <input type="text" id="usuario" placeholder="Usuario">
-    <input type="password" id="password" placeholder="Contraseña">
-    <button onclick="iniciarSesion()">Entrar</button>
-    <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate</a></p>
+    <h2>Inicio de Sesión</h2>
+    <input type="text" id="usuario" placeholder="Usuario" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <button onclick="iniciarSesion()">Iniciar Sesión</button>
+    <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate aquí</a></p>
   </div>
 
+  <!-- REGISTRO -->
   <div id="registro-container" class="oculto">
-    <h1>📝 Registro</h1>
-    <input type="text" id="nuevoUsuario" placeholder="Nuevo usuario">
-    <input type="password" id="nuevoPassword" placeholder="Nueva contraseña">
+    <h2>Registro de Usuario</h2>
+    <input type="text" id="nuevoUsuario" placeholder="Nuevo usuario" />
+    <input type="password" id="nuevoPassword" placeholder="Nueva contraseña" />
     <button onclick="registrarUsuario()">Registrar</button>
     <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
   </div>
 
+  <!-- PANEL PRINCIPAL -->
   <div id="app" class="oculto">
     <header>
-      <h1>💧 Sistema de Gestión Inteligente del Agua</h1>
-      <nav>
-        <button onclick="mostrarSeccion('inicio')">Inicio</button>
-        <button onclick="mostrarSeccion('nivel')">Nivel del Agua</button>
-        <button onclick="mostrarSeccion('consumo')">Consumo</button>
-        <button onclick="mostrarSeccion('configuracion')">Configuración</button>
-        <button class="salir" onclick="cerrarSesion()">Salir</button>
-      </nav>
+      <h1>Sistema de Gestión del Agua Inteligente 💧</h1>
+      <button class="cerrar" onclick="cerrarSesion()">Cerrar sesión</button>
     </header>
 
-    <main>
-      <section id="inicio" class="activo">
-        <h2>Bienvenido</h2>
-        <p>Monitorea y gestiona el uso del agua en tiempo real con sensores inteligentes y control automatizado.</p>
-      </section>
+    <nav>
+      <button onclick="mostrarSeccion('nivel')">Nivel del agua</button>
+      <button onclick="mostrarSeccion('consumo')">Consumo</button>
+      <button onclick="mostrarSeccion('alertas')">Alertas</button>
+    </nav>
 
-      <section id="nivel">
+    <main>
+      <section id="nivel" class="activo">
         <h2>Nivel del Agua</h2>
-        <p>Nivel actual del tanque:</p>
-        <div id="nivelAgua" class="barra"></div>
         <button onclick="simularNivel()">Actualizar nivel</button>
+        <div id="nivelAgua" class="panel-dato">--</div>
       </section>
 
       <section id="consumo">
-        <h2>Consumo Diario</h2>
-        <p>Consumo estimado: <span id="consumoValor">--</span> litros</p>
-        <button onclick="simularConsumo()">Calcular consumo</button>
+        <h2>Consumo</h2>
+        <button onclick="simularConsumo()">Medir consumo</button>
+        <p>Consumo actual: <span id="consumoValor">0</span> L</p>
       </section>
 
-      <section id="configuracion">
-        <h2>Configuración</h2>
-        <label><input type="checkbox" id="alertas" onchange="toggleAlertas()"> Activar alertas</label>
-        <p id="estadoAlertas">Alertas desactivadas.</p>
+      <section id="alertas">
+        <h2>Alertas</h2>
+        <label><input type="checkbox" id="checkAlertas" onchange="toggleAlertas()"> Activar alertas</label>
+        <p id="estadoAlertas">🚫 Alertas desactivadas</p>
       </section>
     </main>
-
-    <footer>
-      <p>© 2025 Proyecto IoT - Gestión del Agua</p>
-    </footer>
   </div>
 
   <script src="script.js"></script>
