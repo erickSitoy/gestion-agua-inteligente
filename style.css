@@ -1,92 +1,85 @@
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(to bottom, #e0f7fa, #f1f8e9);
-  color: #222;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #0077ff, #00c6ff);
+  color: #fff;
+  text-align: center;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
-header {
-  background: #0099cc;
-  color: white;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-h1 {
-  color: #0077aa;
-  font-weight: 600;
-}
-
-button {
-  background: #00bcd4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin: 5px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-button:hover {
-  background: #008c9e;
-}
-
-input {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+h1, h2 {
+  color: #fff;
 }
 
 .oculto {
   display: none;
 }
 
+header {
+  background-color: #005bbb;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 nav {
+  background: #0044aa;
+  padding: 10px;
+}
+
+nav button {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav button:hover {
+  background: #00c6ff;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 80%;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00c6ff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0099ff;
+}
+
+#nivelAgua {
+  font-size: 22px;
   margin-top: 10px;
 }
 
-nav button.salir {
-  background: crimson;
+.panel-dato {
+  background: #003f7f;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 24px;
 }
 
-section {
-  display: none;
+.cerrar {
+  background: #ff4444;
 }
 
-section.activo {
-  display: block;
-}
-
-.barra {
-  width: 250px;
-  height: 35px;
-  background: #ddd;
-  margin: 15px auto;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.relleno {
-  height: 100%;
-  border-radius: 8px 0 0 8px;
-  transition: width 0.5s ease-in-out;
-}
-
-footer {
-  background: #0077aa;
-  color: white;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
-}
