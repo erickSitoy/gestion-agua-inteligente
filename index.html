@@ -7,46 +7,66 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>💧 Sistema de Gestión Inteligente del Agua</h1>
-    <nav>
-      <button onclick="mostrarSeccion('inicio')">Inicio</button>
-      <button onclick="mostrarSeccion('nivel')">Nivel del Agua</button>
-      <button onclick="mostrarSeccion('consumo')">Consumo</button>
-      <button onclick="mostrarSeccion('configuracion')">Configuración</button>
-    </nav>
-  </header>
+  <div id="login-container">
+    <h1>💧 Iniciar Sesión</h1>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="iniciarSesion()">Entrar</button>
+    <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate</a></p>
+  </div>
 
-  <main>
-    <section id="inicio" class="activo">
-      <h2>Bienvenido</h2>
-      <p>Monitorea y gestiona el uso del agua en tiempo real con sensores inteligentes y control automatizado.</p>
-    </section>
+  <div id="registro-container" class="oculto">
+    <h1>📝 Registro</h1>
+    <input type="text" id="nuevoUsuario" placeholder="Nuevo usuario">
+    <input type="password" id="nuevoPassword" placeholder="Nueva contraseña">
+    <button onclick="registrarUsuario()">Registrar</button>
+    <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
+  </div>
 
-    <section id="nivel">
-      <h2>Nivel del Agua</h2>
-      <p>Nivel actual del tanque:</p>
-      <div id="nivelAgua" class="barra"></div>
-      <button onclick="simularNivel()">Actualizar nivel</button>
-    </section>
+  <div id="app" class="oculto">
+    <header>
+      <h1>💧 Sistema de Gestión Inteligente del Agua</h1>
+      <nav>
+        <button onclick="mostrarSeccion('inicio')">Inicio</button>
+        <button onclick="mostrarSeccion('nivel')">Nivel del Agua</button>
+        <button onclick="mostrarSeccion('consumo')">Consumo</button>
+        <button onclick="mostrarSeccion('configuracion')">Configuración</button>
+        <button class="salir" onclick="cerrarSesion()">Salir</button>
+      </nav>
+    </header>
 
-    <section id="consumo">
-      <h2>Consumo Diario</h2>
-      <p>Consumo estimado: <span id="consumoValor">--</span> litros</p>
-      <button onclick="simularConsumo()">Calcular consumo</button>
-    </section>
+    <main>
+      <section id="inicio" class="activo">
+        <h2>Bienvenido</h2>
+        <p>Monitorea y gestiona el uso del agua en tiempo real con sensores inteligentes y control automatizado.</p>
+      </section>
 
-    <section id="configuracion">
-      <h2>Configuración</h2>
-      <label><input type="checkbox" id="alertas" onchange="toggleAlertas()"> Activar alertas</label>
-      <p id="estadoAlertas">Alertas desactivadas.</p>
-    </section>
-  </main>
+      <section id="nivel">
+        <h2>Nivel del Agua</h2>
+        <p>Nivel actual del tanque:</p>
+        <div id="nivelAgua" class="barra"></div>
+        <button onclick="simularNivel()">Actualizar nivel</button>
+      </section>
 
-  <footer>
-    <p>© 2025 Proyecto IoT - Gestión del Agua</p>
-  </footer>
+      <section id="consumo">
+        <h2>Consumo Diario</h2>
+        <p>Consumo estimado: <span id="consumoValor">--</span> litros</p>
+        <button onclick="simularConsumo()">Calcular consumo</button>
+      </section>
+
+      <section id="configuracion">
+        <h2>Configuración</h2>
+        <label><input type="checkbox" id="alertas" onchange="toggleAlertas()"> Activar alertas</label>
+        <p id="estadoAlertas">Alertas desactivadas.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Proyecto IoT - Gestión del Agua</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
