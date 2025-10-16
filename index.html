@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sistema de Gestión Inteligente del Agua</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">💧</div>
+      <div>
+        <h1>Sistema de Gestión Inteligente del Agua</h1>
+        <small>Demostración interactiva — listo para GitHub Pages</small>
+      </div>
+    </div>
+    <nav class="nav">
+      <button data-view="dashboard" class="active">Panel</button>
+      <button data-view="historial">Historial</button>
+      <button data-view="config">Configuración</button>
+      <button data-view="info">Información</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="view active">
+      <div class="row">
+        <div class="card large">
+          <h2>Nivel actual</h2>
+          <div class="tank-wrap">
+            <div class="tank">
+              <div id="water" class="water"></div>
+            </div>
+            <div class="level-text"><span id="levelText">--%</span></div>
+          </div>
+          <div class="state" id="stateText">--</div>
+          <div class="controls">
+            <button id="btnUpdate" class="primary">Actualizar nivel</button>
+            <button id="btnAuto" class="ghost">Auto: <span id="autoState">OFF</span></button>
+          </div>
+        </div>
+
+        <div class="card small">
+          <h3>Resumen</h3>
+          <ul class="summary">
+            <li><strong id="maxVal">--</strong> Máx</li>
+            <li><strong id="minVal">--</strong> Mín</li>
+            <li><strong id="avgVal">--</strong> Prom</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIAL -->
+    <section id="historial" class="view">
+      <div class="card full">
+        <h2>Historial de lecturas</h2>
+        <table id="historyTable">
+          <thead><tr><th>Fecha / Hora</th><th>Nivel (%)</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="controls">
+          <button id="btnClear" class="danger">Borrar historial</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIG -->
+    <section id="config" class="view">
+      <div class="card full">
+        <h2>Configuración</h2>
+        <label>Umbral de alerta (cuando nivel &lt;=): <span id="thresholdVal">30</span>%</label>
+        <input id="threshold" type="range" min="5" max="90" value="30"/>
+        <div class="row">
+          <div class="card small">
+            <h3>Tema</h3>
+            <button id="themeToggle" class="primary">Modo Oscuro</button>
+          </div>
+          <div class="card small">
+            <h3>Auto-actualización</h3>
+            <label><input id="autoIntervalOn" type="checkbox"> Activar auto cada 5s</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO -->
+    <section id="info" class="view">
+      <div class="card full">
+        <h2>Información del sistema</h2>
+        <p>Este prototipo simula un sistema de gestión de agua. En un dispositivo físico, un <strong>ESP32</strong> y un sensor ultrasónico medirían la distancia al agua y enviarían el porcentaje real al servidor o a la app.</p>
+        <h3>Cómo funciona (resumen)</h3>
+        <ol>
+          <li>Sensor ultrasónico mide distancia.</li>
+          <li>ESP32 convierte distancia en porcentaje de nivel.</li>
+          <li>La app consume el dato (por HTTP/WebSocket) y muestra alertas.</li>
+        </ol>
+        <p>Esta demo guarda lecturas localmente (localStorage). Puedes subirla a <strong>GitHub Pages</strong> para obtener un enlace público.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© Sistema de Gestión Inteligente del Agua</footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
